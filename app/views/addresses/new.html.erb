@@ -1,17 +1,27 @@
 <div class="col-md-6 col-md-offset-3">
-  <div class="panel panel-info">
+  <div class="panel panel-default">
     <div class="panel-heading">
-      <p>Scrapp</p>
+      <h3>Scrapp</h3>
     </div>
-    <div class="panel-body">
+    <%= simple_form_for @address do |f| %>
 
-      <%= simple_form_for @address do |f| %>
-        <%= f.input :full_name, class: 'form-control', placeholder: 'name' %>
-        <%= f.input :full_address, class: 'form-control', placeholder: 'city' %>
+      <div class="panel-body">
+        <div class="input-group">
+          <%= f.text_field :full_name, class: 'form-control input-lg', placeholder: 'name'%>
+          <span class="input-group-addon glyphicon glyphicon-user"></span>
+        </div>
+        <br/>
 
-        <%= f.submit class: 'btn btn-sm btn-primary' %>
-        <%= link_to 'Back', addresses_path, class: 'btn btn-sm btn-primary' %>
-      <% end %>    
-    </div>  
+        <div class="input-group">
+          <%= f.text_field :full_address, class: 'form-control input-lg', placeholder: 'city', label: false %>
+          <span class="input-group-addon glyphicon glyphicon-globe"></span>
+        </div>
+      </div>  
+
+      <div class="panel-footer">
+        <%= f.submit 'Scrap Data', class: 'btn btn-sm btn-primary' %>
+        <%= link_to 'List Data', addresses_path, class: 'btn btn-sm btn-primary' %>
+      </div>
+    <% end %>    
   </div>
 </div>

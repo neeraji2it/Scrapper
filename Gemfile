@@ -9,6 +9,5 @@ gem 'jquery-rails'
 gem 'spring',        group: :development
 
 gem 'bootstrap-sass', '~> 3.3.4'
-gem 'font-awesome-sass', '~> 4.3.0'
 gem "gritter", "1.1.0"
 gem 'simple_form'
