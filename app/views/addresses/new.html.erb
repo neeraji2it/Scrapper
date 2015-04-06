@@ -7,13 +7,13 @@
 
       <div class="panel-body">
         <div class="input-group">
-          <%= f.text_field :full_name, class: 'form-control input-lg', placeholder: 'name'%>
+          <%= f.text_field :full_name, class: 'form-control input-lg', placeholder: 'name', required: true %>
           <span class="input-group-addon glyphicon glyphicon-user"></span>
         </div>
         <br/>
 
         <div class="input-group">
-          <%= f.text_field :full_address, class: 'form-control input-lg', placeholder: 'city', label: false %>
+          <%= f.text_field :full_address, class: 'form-control input-lg', placeholder: 'city', label: false, required: true %>
           <span class="input-group-addon glyphicon glyphicon-globe"></span>
         </div>
       </div>  

@@ -8,6 +8,7 @@
     <title>Scrapper Tool</title>
     
     <%= stylesheet_link_tag    'application' %>
+    <%= javascript_include_tag 'application' %>
     <%= csrf_meta_tags %>
   </head>
   <body>
@@ -18,12 +19,12 @@
           <%= link_to 'Scrapper', root_path, class: 'navbar-brand' %>
         </div>
       </nav>
-      <%= yield %>
     </header>
 
     <div class="container">
       <div class="row">
-        <%= javascript_include_tag 'application' %>
+        <%= yield %>
+        <%= gflash %>
       </div>
     </div>
   </body>

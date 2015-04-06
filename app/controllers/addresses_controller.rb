@@ -15,6 +15,8 @@ class AddressesController < ApplicationController
   def create
     @address = Address.new(address_params)
 
+    @address.scrap_and_update_information
+
     if @address.save
       gflash success: 'Address was successfully created.'
       redirect_to root_path
@@ -39,6 +41,6 @@ class AddressesController < ApplicationController
 
     # Only allow a trusted parameter "white list" through.
     def address_params
-      params.require(:address).permit(:full_name, :full_address, :phone_number)
+      params.require(:address).permit(:full_name, :full_address)
     end
 end
