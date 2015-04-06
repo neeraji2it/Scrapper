@@ -1,5 +1,17 @@
-<h1>New address</h1>
+<div class="col-md-6 col-md-offset-3">
+  <div class="panel panel-info">
+    <div class="panel-heading">
+      <p>Scrapp</p>
+    </div>
+    <div class="panel-body">
 
-<%= render 'form' %>
+      <%= simple_form_for @address do |f| %>
+        <%= f.input :full_name, class: 'form-control', placeholder: 'name' %>
+        <%= f.input :full_address, class: 'form-control', placeholder: 'city' %>
 
-<%= link_to 'Back', addresses_path %>
+        <%= f.submit class: 'btn btn-sm btn-primary' %>
+        <%= link_to 'Back', addresses_path, class: 'btn btn-sm btn-primary' %>
+      <% end %>    
+    </div>  
+  </div>
+</div>

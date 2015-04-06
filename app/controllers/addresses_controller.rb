@@ -17,7 +17,7 @@ class AddressesController < ApplicationController
 
     if @address.save
       gflash success: 'Address was successfully created.'
-      redirect_to @address
+      redirect_to root_path
     else
       gflash :now, :error => @address.errors.full_messages.join("<br/>").html_safe
       render :new
@@ -28,7 +28,7 @@ class AddressesController < ApplicationController
   def destroy
     @address.destroy
     gflash success: 'Address was successfully destroyed.'
-    redirect_to addresses_url
+    redirect_to root_path
   end
 
   private
