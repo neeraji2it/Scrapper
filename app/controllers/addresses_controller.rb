@@ -15,11 +15,19 @@ class AddressesController < ApplicationController
   def create
     @address = Address.new(address_params)
 
-    @address.scrap_and_update_information
-
-    if @address.save
-      gflash success: 'Address was successfully created.'
-      redirect_to root_path
+    if @address.valid?
+      if @address.scrap_and_update_information_process_1
+        p "scrap_and_update_information_process_1"
+        gflash success: 'Address was successfully created.'
+        redirect_to root_path
+      elsif @address.scrap_and_update_information_process_2
+        p "scrap_and_update_information_process_2"
+        gflash success: 'Address was successfully created.'
+        redirect_to root_path
+      else
+        gflash error: 'Unable to scrap data'
+        redirect_to root_path
+      end
     else
       gflash :now, :error => @address.errors.full_messages.join("<br/>").html_safe
       render :new
