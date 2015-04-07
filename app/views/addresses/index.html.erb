@@ -3,7 +3,13 @@
     <div class="panel-heading clearfix">
       <h4 class="panel-title pull-left" style="padding-top: 7.5px;">Listing addresses</h4>
       <div class="btn-group pull-right">
-        <%= link_to "Export To Excel", "#", class: 'btn btn-sm btn-primary pull-right' %>
+        <%= link_to "<i class='glyphicon glyphicon-save'></i> Export To Excel".html_safe, addresses_path(format: 'xls'), class: 'btn btn-sm btn-success pull-right' %>
+
+        <%= link_to "<i class='glyphicon glyphicon-save'></i> Export To Csv".html_safe, addresses_path(format: 'csv'), class: 'btn btn-sm btn-info pull-right' %>
+        
+        <%= link_to "<i class='glyphicon glyphicon-trash'></i> Clear All Data".html_safe, destroy_all_addresses_path, method: :delete, data: { confirm: 'Are you sure to clear database?' }, class: 'btn btn-sm btn-danger pull-right' %>
+        
+        <%= link_to "<i class='glyphicon glyphicon-plus'></i> New Address".html_safe, new_address_path,  class: 'btn btn-sm btn-primary pull-right' %>
       </div>      
     </div>      
 
@@ -24,7 +30,7 @@
               <td><%= address.full_name %></td>
               <td><%= address.full_address %></td>
               <td><%= address.phone_number %></td>
-              <td><%= link_to 'Destroy', address, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+              <td><%= link_to "<i class='glyphicon glyphicon-trash'></i>".html_safe, address, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-sm btn-danger' %></td>
             </tr>
           <% end %>
         </tbody>
@@ -32,7 +38,7 @@
     </div>
 
     <div class="panel-footer">
-      <%= link_to 'New Address', new_address_path, class: 'btn btn-sm btn-primary' %>
+      <%= link_to "<i class='glyphicon glyphicon-plus'></i> New Address".html_safe, new_address_path, class: 'btn btn-sm btn-primary' %>
     </div>
 
   </div>

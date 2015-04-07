@@ -17,9 +17,9 @@ ActiveRecord::Schema.define(version: 20150406125020) do
   enable_extension "plpgsql"
 
   create_table "addresses", force: true do |t|
-    t.string   "full_name"
+    t.text     "full_name"
     t.text     "full_address"
-    t.string   "phone_number"
+    t.text     "phone_number"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

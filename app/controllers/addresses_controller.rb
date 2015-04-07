@@ -4,6 +4,12 @@ class AddressesController < ApplicationController
   # GET /addresses
   def index
     @addresses = Address.all
+
+    respond_to do |format|
+      format.html
+      format.csv { send_data @addresses.to_csv }
+      format.xls
+    end
   end
 
   # GET /addresses/new
@@ -16,12 +22,9 @@ class AddressesController < ApplicationController
     @address = Address.new(address_params)
 
     if @address.valid?
-      if @address.scrap_and_update_information_process_1
+      if @address.scrap_and_update_information_process_1 ||
+         @address.scrap_and_update_information_process_2
         p "scrap_and_update_information_process_1"
-        gflash success: 'Address was successfully created.'
-        redirect_to root_path
-      elsif @address.scrap_and_update_information_process_2
-        p "scrap_and_update_information_process_2"
         gflash success: 'Address was successfully created.'
         redirect_to root_path
       else
@@ -38,6 +41,11 @@ class AddressesController < ApplicationController
   def destroy
     @address.destroy
     gflash success: 'Address was successfully destroyed.'
+    redirect_to root_path
+  end
+
+  def destroy_all
+    Address.destroy_all
     redirect_to root_path
   end
 
