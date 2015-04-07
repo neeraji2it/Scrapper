@@ -11,13 +11,18 @@ gem 'spring',        group: :development
 gem 'bootstrap-sass', '~> 3.3.4'
 gem "gritter", "1.1.0"
 gem 'simple_form'
-gem 'writeexcel'
-
-gem 'nokogiri'
-gem 'httparty'
+# gem 'writeexcel'
+gem 'kaminari'
+gem 'bootstrap-kaminari-views'
 gem 'pry-rails'
 
-gem 'better_errors'
-gem 'binding_of_caller'
+# scrapper tool
+gem 'nokogiri'
+gem 'httparty'
+
+group :development do
+  gem 'better_errors', group: :development
+  gem 'binding_of_caller', group: :development
+end
 
 gem 'rails_12factor', group: :production

@@ -3,7 +3,7 @@ class AddressesController < ApplicationController
 
   # GET /addresses
   def index
-    @addresses = Address.all
+    @addresses = Address.all.page(params[:page])
 
     respond_to do |format|
       format.html
@@ -35,13 +35,6 @@ class AddressesController < ApplicationController
       gflash :now, :error => @address.errors.full_messages.join("<br/>").html_safe
       render :new
     end
-  end
-
-  # DELETE /addresses/1
-  def destroy
-    @address.destroy
-    gflash success: 'Address was successfully destroyed.'
-    redirect_to root_path
   end
 
   def destroy_all
