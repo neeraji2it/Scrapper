@@ -15,6 +15,7 @@ gem 'simple_form'
 gem 'kaminari'
 gem 'bootstrap-kaminari-views'
 gem 'pry-rails'
+gem 'devise'
 
 # scrapper tool
 gem 'nokogiri'
