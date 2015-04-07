@@ -18,7 +18,7 @@ module Concerns::FirstScrapper
         full_address  = scrap_full_address_1(data, id)
         phone_number  = scrap_phone_number_1(data, id)
 
-        unless full_name.blank? || full_address.blank? || phone_number.blank?
+        unless full_name.blank? && full_address.blank? && phone_number.blank?
           address = Address.new(full_name: full_name, full_address: full_address, phone_number: phone_number)
           address.save!(validate: false)
         end
@@ -38,16 +38,17 @@ module Concerns::FirstScrapper
   def scrap_full_name_1(data, id)
     result = data.css("li##{id} .visitCardContent h2.titleMain a.companyName span")
 
-    p result.text rescue nil
-
     return result.first.text rescue nil
   end
 
 
   def scrap_phone_number_1(data, id)
-    skip_text = "Opposé au marketing directSignification des pictogrammesDevant un numéro, le picto Opposé au marketing direct signale une opposition aux opérations de marketing direct."
+    skip_text = "Signification des pictogrammes."
+    skip_text2 = "Signification des pictogrammes"
 
     result = data.css("li##{id} .visitCardContent .dataCard .contactBlock  ul.blocPhoneNumber li.hideTel")
-    result.first.data.css("strong") rescue nil
+    result = result.first.css("strong").text rescue nil
+
+    return result.gsub(skip_text, "").gsub(skip_text2, "")
   end
 end
