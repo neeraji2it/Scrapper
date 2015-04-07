@@ -11,6 +11,7 @@ gem 'spring',        group: :development
 gem 'bootstrap-sass', '~> 3.3.4'
 gem "gritter", "1.1.0"
 gem 'simple_form'
+gem 'writeexcel'
 
 gem 'nokogiri'
 gem 'httparty'
@@ -18,3 +19,5 @@ gem 'pry-rails'
 
 gem 'better_errors'
 gem 'binding_of_caller'
+
+gem 'rails_12factor', group: :production

@@ -3,6 +3,7 @@ require 'open-uri'
 class Address < ActiveRecord::Base
   include Concerns::FirstScrapper
   include Concerns::SecondScrapper
+  # include Concerns::ToXls
 
   # validation
   validates :full_name, presence: true
