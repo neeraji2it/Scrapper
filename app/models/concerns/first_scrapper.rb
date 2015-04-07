@@ -45,10 +45,9 @@ module Concerns::FirstScrapper
 
 
   def scrap_phone_number_1(data, id)
+    skip_text = "Opposé au marketing directSignification des pictogrammesDevant un numéro, le picto Opposé au marketing direct signale une opposition aux opérations de marketing direct."
+
     result = data.css("li##{id} .visitCardContent .dataCard .contactBlock  ul.blocPhoneNumber li.hideTel")
-    result = result.blank? ? "" : result.text.gsub("\n", "").gsub("  ", "")
-    result = result.split(":").join(" : ")
-    result = result.split("fax").join(", fax")
-    result = result.split("mobile").join(", mobile")
+    result.first.data.css("strong") rescue nil
   end
 end
