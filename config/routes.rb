@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   resources :addresses, only: [:index, :new, :create] do
     collection do
       delete :destroy_all
+      get :export
     end
   end
 end

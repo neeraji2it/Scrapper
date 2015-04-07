@@ -24,6 +24,7 @@ gem 'httparty'
 group :development do
   gem 'better_errors', group: :development
   gem 'binding_of_caller', group: :development
+  gem 'dotenv-rails'
 end
 
 gem 'rails_12factor', group: :production

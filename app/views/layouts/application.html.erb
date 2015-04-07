@@ -15,8 +15,34 @@
 
     <header>
       <nav class="navbar navbar-default">
-        <div class="navbar-header">
-          <%= link_to 'Scrapper', root_path, class: 'navbar-brand' %>
+        <div class="container-fluid">
+          <!-- brand -->
+          <div class="navbar-header">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              <%= link_to 'Scrapper', root_path, class: 'navbar-brand' %>
+            </div>
+          </div>
+          <!-- /brand -->
+          
+          <!-- right elements -->
+          <div class="collapse navbar-collapse" id="registration-navbar">
+            <ul class="nav navbar-nav navbar-right">
+              <li>
+                <% if current_user %>
+                  <%= link_to "Login", new_user_session_path, class: 'btn btn-sm btn-info' %>
+                <% else %>
+                  <%= link_to "Login", destroy_user_session_path, method: :delete, class: 'btn btn-sm btn-info' %>
+                <% end %>
+              </li>
+            </ul>
+          </div>
+          <!-- /right elements -->
         </div>
       </nav>
     </header>

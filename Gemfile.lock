@@ -61,6 +61,9 @@ GEM
       responders
       thread_safe (~> 0.1)
       warden (~> 1.2.3)
+    dotenv (2.0.0)
+    dotenv-rails (2.0.0)
+      dotenv (= 2.0.0)
     erubis (2.7.0)
     execjs (2.4.0)
     gritter (1.1.0)
@@ -161,6 +164,7 @@ DEPENDENCIES
   bootstrap-sass (~> 3.3.4)
   coffee-rails (~> 4.0.0)
   devise
+  dotenv-rails
   gritter (= 1.1.0)
   httparty
   jquery-rails

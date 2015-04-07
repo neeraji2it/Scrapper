@@ -4,6 +4,10 @@ class AddressesController < ApplicationController
   # GET /addresses
   def index
     @addresses = Address.all.page(params[:page])
+  end
+
+  def export
+    @addresses = Address.all
 
     respond_to do |format|
       format.html

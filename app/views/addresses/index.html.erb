@@ -6,9 +6,9 @@
       </h4>
 
       <div class="btn-group pull-right">
-        <%= link_to "<i class='glyphicon glyphicon-save'></i> Export To Excel".html_safe, addresses_path(format: 'xls'), class: 'btn btn-sm btn-success pull-right' %>
+        <%= link_to "<i class='glyphicon glyphicon-save'></i> Export To Excel".html_safe, export_addresses_path(format: 'xls'), class: 'btn btn-sm btn-success pull-right' %>
 
-        <%= link_to "<i class='glyphicon glyphicon-save'></i> Export To Csv".html_safe, addresses_path(format: 'csv'), class: 'btn btn-sm btn-info pull-right' %>
+        <%= link_to "<i class='glyphicon glyphicon-save'></i> Export To Csv".html_safe, export_addresses_path(format: 'csv'), class: 'btn btn-sm btn-info pull-right' %>
         
         <%= link_to "<i class='glyphicon glyphicon-trash'></i> Clear All Data".html_safe, destroy_all_addresses_path, method: :delete, data: { confirm: 'Are you sure to clear database?' }, class: 'btn btn-sm btn-danger pull-right' %>
         
