@@ -35,9 +35,9 @@
             <ul class="nav navbar-nav navbar-right">
               <li>
                 <% if current_user %>
-                  <%= link_to "Login", new_user_session_path, class: 'btn btn-sm btn-info' %>
+                  <%= link_to "Hello Admin, Logout?", destroy_user_session_path, method: :delete, class: 'btn btn-sm btn-primary' %>
                 <% else %>
-                  <%= link_to "Login", destroy_user_session_path, method: :delete, class: 'btn btn-sm btn-info' %>
+                  <%= link_to "Login", new_user_session_path, class: 'btn btn-sm btn-primary' %>
                 <% end %>
               </li>
             </ul>
